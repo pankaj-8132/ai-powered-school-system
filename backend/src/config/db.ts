@@ -1,5 +1,8 @@
 import mongoose from "mongoose";
-require("dotenv").config();
+import dotenv from "dotenv";
+
+dotenv.config();
+
 // connect our db
 export const connectDB = async () => {
   try {
@@ -7,6 +10,6 @@ export const connectDB = async () => {
     console.log(`✅ MongoDB Connected: ${conn.connection.host}`);
   } catch (error) {
     console.error(`❌ Error: ${(error as Error).message}`);
-    process.exit(1); // Exit process with failure
+    process.exit(1);
   }
 };
