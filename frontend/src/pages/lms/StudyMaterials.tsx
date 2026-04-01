@@ -6,7 +6,7 @@ import {
   Plus, FileText, Link, Video, BookOpen, Loader2, Trash2, ExternalLink,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
+
 import {
   Card, CardHeader, CardTitle, CardContent, CardFooter,
 } from "@/components/ui/card";
