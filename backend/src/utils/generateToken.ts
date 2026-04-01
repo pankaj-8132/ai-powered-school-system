@@ -7,14 +7,13 @@ export const generateToken = (userId: string, res: Response) => {
     algorithm: "HS512",
   });
 
-  // attach token to http-only cookie
   res.cookie("jwt", token, {
     httpOnly: true,
-    secure: process.env.NODE_ENV === "production", // secure cookies only in prod
-    sameSite: process.env.NODE_ENV === "production" ? "strict" : "lax", // lax for localhost
-    maxAge: 30 * 24 * 60 * 60 * 1000, // 30 days
-    path: "/", // cookie valid for entire site
+    secure: true,        // always true since both services are on https
+    sameSite: "none",    // required for cross-origin between Render services
+    maxAge: 30 * 24 * 60 * 60 * 1000,
+    path: "/",
   });
 
-  return token; // return token in case needed
+  return token;
 };
